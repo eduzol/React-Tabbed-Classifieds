@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import logo from './logo.svg';
+import Classified from './components/Classified';
 import './App.css';
 
 class App extends Component {
 
-  render() {
-    return (
-     <Tabs>
-      <TabList>
-        <Tab>Title 1</Tab>
-        <Tab>Title 2</Tab>
-      </TabList>
+  state = {
+    classifieds: {
+      categories : [
+        {
+          categoryId : 14343, 
+          categoryName : "Real Estate", 
+          content : "Real Estate content"
+        },
+        {
+          categoryId : 453453, 
+          categoryName : "Autos", 
+          content : "Autos Content"
+        } ,
+        {
+          categoryId : 56453, 
+          categoryName : "Jobs", 
+          content : "Job Market"
+        } 
+      ] 
+    }
+  };
 
-      <TabPanel>
-        <h2>Any content 1</h2>
-      </TabPanel>
-      <TabPanel>
-        <h2>Any content 2</h2>
-      </TabPanel>
-  </Tabs>
+  render() {
+    
+    return (
+      <div className="App">
+        <header className="App-header">
+          Classifieds Demo
+        </header>
+        
+        <div className="App-intro">
+          <Classified classifieds={this.state.classifieds}  />
+        </div>
+      </div>
     );
   }
 }
